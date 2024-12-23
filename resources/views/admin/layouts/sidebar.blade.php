@@ -18,7 +18,7 @@
                 </li>
 
                 <li>
-                    <a href="https://so-you-start.ru/update/" class="waves-effect">
+                    <a href="https://AmigoCasino/update/" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-dashboards">Актуальные обновления</span>
                     </a>
@@ -59,7 +59,7 @@
                 @endif
                 <li class="menu-title" key="t-menu">Промокоды</li>
 
-                
+
                 <li>
                     <a href="/admin/promo" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
@@ -74,7 +74,7 @@
                     </a>
                 </li>
 
-                
+
                 @if(Auth::user()->admin == 1)
                 <li class="menu-title" key="t-menu">Настройки</li>
 

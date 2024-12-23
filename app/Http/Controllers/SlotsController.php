@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use App\Slots;
 use App\User;
@@ -25,9 +26,11 @@ class SlotsController extends Controller
             }]
         ])->where([['show', 1], ['is_live', 0]])->offset($show)->limit(30)->get();
 
-        foreach($slots as $slot) {
-            $slot->icon = '/img/slots/'. implode('', explode(' ', $slot->title)) . '.jpg';
-        }
+        $slots = $slots->filter(function ($slot) {
+            $slot->icon = '/img/slots/' . implode('', explode(' ', $slot->title)) . '.jpg';
+
+            return file_exists(public_path($slot->icon));
+        });
 
         return [
             'games' => $slots
@@ -56,7 +59,7 @@ class SlotsController extends Controller
             $user->save();
         }
 
-        $url = "https://test.partners.casinomobule.com/games.start?partner.alias=".($user->admin == 3 ? 'soyoustartvhguru' : 'soyoustartvhguru')."&partner.session={$user->api_token}&game.provider={$slot->provider}&game.alias={$slot->alias}&lang=ru&lobby_url=https://beta.so-you-start.ru/slots&currency=RUB&mobile=false";
+        $url = "https://test.partners.casinomobule.com/games.start?partner.alias=diazovtestmode&partner.session={$user->api_token}&game.provider={$slot->provider}&game.alias={$slot->alias}&lang=ru&currency=RUB&mobile=false";
 
         return [
             'url' => $url,
@@ -65,36 +68,27 @@ class SlotsController extends Controller
         ];
     }
 
+    /**
+     * @throws Exception
+     */
     public function callback($method, Request $r) {
         //return response(['error' => 'Произошла неизвестная ошибка. Обновите страницу']);
 
         switch($method) {
             case 'trx.cancel':
                 return $this->trxCancel($r);
-            break;
-
             case 'trx.complete':
                 return $this->trxComplete($r);
-            break;
-
             case 'check.session':
                 return $this->checkSession($r);
-            break;
-
             case 'check.balance':
                 return $this->checkBalance($r);
-            break;
-
             case 'withdraw.bet':
                 return $this->userBet($r);
-            break;
-
             case 'deposit.win':
                 return $this->userWin($r);
-            break;
-
             default:
-                throw new \Exception("Unknown method");
+                throw new Exception("Unknown method");
         }
     }
 

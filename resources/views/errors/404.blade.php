@@ -1,8 +1,8 @@
  <!DOCTYPE html>
 <html>
-<head> 
+<head>
     <meta charset="utf-8">
-    <title>SO-YOU-START.RU</title>
+    <title>AmigoCasino</title>
     <meta name="viewport" content="width=device-width, user-scalable=yes">
     <link rel="stylesheet" type="text/css" href="/css/style.css?v=@php echo time(); @endphp">
     <link rel="stylesheet" type="text/css" href="/css/main.css?v=@php echo time(); @endphp">
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     
+
 </head>
 <body class="theme--dark">
  <div class="body_404">
@@ -24,7 +24,7 @@
 Попробуйте снова</div>
 	<button class="btn_bet_dice" style="width:154px" onclick="location.href='/'">На главную</button>
  	</div>
- 	
+
  </div>
 </body>
  </html>

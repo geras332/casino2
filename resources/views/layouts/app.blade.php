@@ -1,7 +1,7 @@
-@php 
+@php
 
 $setting = \App\Setting::first();
-$snow = 0; 
+$snow = 0;
 
 @endphp
 @if(\Auth::guest())
@@ -17,7 +17,7 @@ $snow = 0;
 @include('errors.ban')
 @php exit() @endphp
 @endif
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@ $snow = 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{$setting->name}}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     {!! $setting->meta_tags !!}
     <!-- <link rel="icon" type="image/png" href="images/favicon.png" sizes="64x64" /> -->
     <!-- <meta name="msapplication-TileImage" content="images/favicon.png"> -->
@@ -34,7 +34,7 @@ $snow = 0;
 
     <link rel="stylesheet" href="/css/main.css?v={{time()}}">
 
-    
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
@@ -45,7 +45,7 @@ $snow = 0;
     <link rel="stylesheet" href="/css/snow.css?v={{time()}}">
     <script src="/js/snowfall.jquery.js" type="text/javascript"></script>
     @endif
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.css">
     <script src="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
@@ -66,7 +66,7 @@ $snow = 0;
     <!-- <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-login="betusxbot" data-size="large" data-auth-url="https://betusx.pro/tg/auth/callback" data-request-access="write"></script>
     <script src="https://telegram.org/js/widget-frame.js?60" data-telegram-login="betusxbot" data-size="large" data-auth-url="https://betusx.pro/tg/auth/callback" data-request-access="write"></script> -->
 
-</head> 
+</head>
 
 @include('layouts.colors_systems')
 
@@ -218,7 +218,7 @@ $snow = 0;
         <div class="winter__snow winter__snow--right"></div>
     </div>
 
-    
+
     <div class="mobile-menu d-flex align-center">
         <nav class="mobile-menu__links d-flex align-center justify-space-between">
             <li style="margin-top: 7px;"><a class="btn_active btn_bonus" onclick="load('bonus')"><svg class="icon"><use xlink:href="images/symbols.svg#mobile_promo"></use></svg></a></li>
@@ -261,7 +261,7 @@ $snow = 0;
                         <img class="sidebar__img sidebar__img--2" src="images/snow/confetti/2.png">
                         <img class="sidebar__img sidebar__img--3" src="images/snow/confetti/3.png">
                         @endif
-                        
+
                         <a href="shoot" class="sidebar__game game_shoot d-flex justify-center align-center">
                             <div class="sidebar__game-center d-flex align-center justify-center align-center">
                                 <svg class="icon"><use xlink:href="/images/symbols.svg?v=5#hunt"></use></svg>
@@ -271,7 +271,7 @@ $snow = 0;
                             </div>
                             <div class="sidebar__game--hover"></div>
                         </a>
-                        
+
                         <a onclick="load('x100')" class="sidebar__game game_x100 d-flex justify-center align-center">
                             <div class="sidebar__game-center d-flex align-center justify-center align-center">
                                 <svg class="icon"><use xlink:href="/images/symbols.svg#x100"></use></svg>
@@ -301,8 +301,8 @@ $snow = 0;
                             </div>
                             <div class="sidebar__game--hover"></div>
                         </a>
-                        
-                      
+
+
                         <a onclick="load('dice')" class="sidebar__game game_dice d-flex justify-center align-center">
                             <div class="sidebar__game-center d-flex align-center justify-center align-center">
                                 <svg class="icon"><use xlink:href="/images/symbols.svg#dice"></use></svg>
@@ -331,7 +331,7 @@ $snow = 0;
                                 <span>Coin Flip</span>
                             </div>
                             <div class="sidebar__game--hover"></div>
-                        </a>                  
+                        </a>
                         <a onclick="load('keno')" class="sidebar__game game_keno d-flex justify-center align-center">
                             <div class="sidebar__game-center d-flex align-center justify-center align-center">
                                 <svg class="icon"><use xlink:href="/images/symbols.svg?v=3#keno"></use></svg>
@@ -340,18 +340,18 @@ $snow = 0;
                                 <span>Keno</span>
                             </div>
                             <div class="sidebar__game--hover"></div>
-                        </a>                                          
+                        </a>
 
-                        
+
 
 
                     </div>
                     @auth
                     <div class="sidebar__block sidebar__profile d-flex justify-center align-center flex-column">
                         <div class="sidebar__user-avatar" style="background: url({{\Auth::user()->avatar}}) no-repeat center center / cover;"></div>
-                        
+
                     </div>
-                    @endauth 
+                    @endauth
                 </div>
                 <div class="sidebar__socials d-flex flex-column align-center justify-center">
                     <a href="https://vk.com/public{{\App\Setting::first()->group_id}}" target="_blank" class="sidebar__social--vk d-flex align-center justify-center">
@@ -361,7 +361,7 @@ $snow = 0;
                         <svg class="icon"><use xlink:href="/images/symbols.svg?v=2#telegram"></use></svg>
                     </a>
                 </div>
-               
+
             </div>
         </div>
         <div class="header">
@@ -441,7 +441,7 @@ $snow = 0;
                                     <svg class="icon"><use xlink:href="images/symbols.svg?v=1#light"></use></svg>
                                     <span>Светлая тема</span>
                                 </a> -->
-                                
+
                                 <a href="logout" onclick="location.href='logout'" class="d-flex align-center">
                                     <svg class="icon"><use xlink:href="images/symbols.svg#exit"></use></svg>
                                     <span>Выйти</span>
@@ -470,7 +470,7 @@ $snow = 0;
                         <a href="#" onclick="load('policy')">Политика конфиденциальности</a>
                     </li>
                 </nav>
-                <div class="footer__text"><span>SO-YOU-START.RU — ALL RIGHTS RESERVED.</span></div>
+                <div class="footer__text"><span>AmigoCasino — ALL RIGHTS RESERVED.</span></div>
             </div>
         </div>
         @include('layouts.chat')
@@ -494,12 +494,12 @@ $snow = 0;
                     <a href="/tg_auth" class="btn btn--blue d-flex align-center justify-center is-ripples flare"><span>TELEGRAM</span></a>
 
                 </div>
-                
+
             </div>
         </div>
-        
+
         @endguest
-       
+
         <div class="popup popup--crash-info">
             <div class="popup__title d-flex align-center justify-space-between">
                 <span>Режим «Crash»</span>
@@ -520,7 +520,7 @@ $snow = 0;
 
 
                 <div class="text__borders"></div>
-                <p> 
+                <p>
                     Сервис GOLDEN-X не гарантирует своевременного выполнения ручного вывода после нажатия (кнопка "Вывести деньги") и настоятельно рекомендует использовать функцию автоматического вывода средств (поле "Автовывод").
                 </p>
                 <div class="text__borders"></div>
@@ -542,7 +542,7 @@ $snow = 0;
                         <svg class="icon"><use xlink:href="images/symbols.svg#plus"></use></svg>
                         <span>Пополнение демо баланса</span>
                     </div>
-                    
+
                 </div>
                 <a href="#" class="close d-flex align-center justify-center">
                     <svg class="icon"><use xlink:href="images/symbols.svg#close"></use></svg>
@@ -632,19 +632,19 @@ $snow = 0;
                 <div class="wallet__content d-flex flex-column justify-space-between">
                     <div class="wallet__content-top">
                         <div class="bx-input d-flex flex-column">
-                            <div class="bx-input__input d-flex align-center justify-space-between">                       
+                            <div class="bx-input__input d-flex align-center justify-space-between">
                                     <input type="text" style="text-align: left;" id="sumDep" onkeyup="$('.payDep').html($('#sumDep').val())" placeholder="ВВЕДИТЕ СУММУ">
                                     <svg class="icon money"><use xlink:href="images/symbols.svg#coins"></use></svg>
                             </div>
                         </div>
-                        
+
                     <div class="x30__bet-placed d-flex align-center justify-space-between payments">
                         <a onclick="$('#sumDep').val((Number($('#sumDep').val()) + 10).toFixed(2));">+10</a>
                         <a onclick="$('#sumDep').val((Number($('#sumDep').val()) + 100).toFixed(2));">+100</a>
                         <a onclick="$('#sumDep').val((Number($('#sumDep').val()) + 1000).toFixed(2));">+1000</a>
                         <a onclick="$('#sumDep').val((Number($('#sumDep').val()) * 2).toFixed(2));">x2</a>
                         <a onclick="$('#sumDep').val(Math.max((Number($('#sumDep').val()) / 2), 1).toFixed(2));">1/2</a>
-                    </div> 
+                    </div>
 
                         <div class="bx-input d-flex flex-column">
                             <div class="bx-input__input d-flex align-center justify-space-between">
@@ -659,7 +659,7 @@ $snow = 0;
                     <div class="wallet__content-bottom">
                         <div class="wallet__order d-flex justify-space-between align-center">
                             <div class="wallet__txt d-flex flex-column">
-                                
+
                                 <b class="d-flex align-center">Всего к оплате: <span class="d-flex align-center"><b class="payDep">0</b> <svg class="icon money"><use xlink:href="images/symbols.svg#coins"></use></svg></span></b>
                             </div>
                             <a onclick="disable(this);goDeposit(this)" class="btn is-ripples flare btn--blue d-flex align-center"><span>ПОПОЛНИТЬ</span></a>
@@ -668,7 +668,7 @@ $snow = 0;
                 </div>
             </div>
             <script type="text/javascript">
-                
+
             </script>
             <script type="text/javascript">
                 function setSystemW(id, comm_percent, comm_rub, min_sum){
@@ -706,10 +706,10 @@ $snow = 0;
                 <div class="wallet__content-top">
                     <div class="bx-input d-flex flex-column">
                         <div class="bx-input__input d-flex align-center justify-space-between">
-                            
+
                                 <input type="text" style="text-align: left;" id="sum_withdraw" onkeyup="$('#sum_itog_pay').html($('#sum_withdraw').val());updateW()" placeholder="ВВЕДИТЕ СУММУ ВЫВОДА">
                                 <svg class="icon money"><use xlink:href="images/symbols.svg#coins"></use></svg>
-                            
+
                         </div>
                     </div>
                     <div class="bx-input d-flex flex-column">
@@ -723,9 +723,9 @@ $snow = 0;
                     </div>
                     <div class="bx-input d-flex flex-column">
                         <div class="bx-input__input d-flex align-center justify-space-between">
-                            
+
                                 <input style="text-align: left;"  type="text" id="wallet_withdraw" placeholder="ВВЕДИТЕ РЕКВИЗИТЫ">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -815,7 +815,7 @@ $snow = 0;
                 </div>
 
                 @endforeach
-            </div> 
+            </div>
         </div>
 
 
@@ -886,9 +886,9 @@ $snow = 0;
 
                         </div>
                     </div>
-                    
 
-                </div>            
+
+                </div>
 
 
 
@@ -944,44 +944,44 @@ $snow = 0;
 <script type="text/javascript">
     function kenoGo(){
 
-        $.post('/keno/go',{_token: csrf_token, 
+        $.post('/keno/go',{_token: csrf_token,
             kenoGo1: $('#kenoGo1').val(),
             kenoGo2: $('#kenoGo2').val(),
             kenoGo3: $('#kenoGo3').val(),
             kenoGo4: $('#kenoGo4').val(),
             kenoGo5: $('#kenoGo5').val(),
-            
-            
+
+
         }).then(e=>{
 
-            if(e.success){      
+            if(e.success){
 
                 notification('success','Успешно')
             }
-            if(e.error){       
+            if(e.error){
                 notification('error',e.error)
             }
         }).fail(e=>{
             notification('error',JSON.parse(e.responseText).message)
-        })  
+        })
     }
 
     function kenoGoBonus(){
 
-        $.post('/keno/bonusgo',{_token: csrf_token, 
+        $.post('/keno/bonusgo',{_token: csrf_token,
             kenoBonusNumber: $('#kenoBonusNumber').val(),
             kenoBonusCoeff: $('#kenoBonusCoeff').val(),
         }).then(e=>{
-            if(e.success){     
+            if(e.success){
 
                 notification('success','Успешно')
             }
-            if(e.error){       
+            if(e.error){
                 notification('error',e.error)
             }
         }).fail(e=>{
             notification('error',JSON.parse(e.responseText).message)
-        })  
+        })
     }
 </script>
 @endif
@@ -1007,43 +1007,43 @@ $snow = 0;
     <div class="popup__content">
         <div class="bx-input d-flex align-center justify-space-between promocodeInputBlock">
             <div class="bx-input__input promocodeInput d-flex align-center justify-space-between">
-                
-                
+
+
                     <input type="text" style="text-align: left;" id="promo_name" placeholder="ВВЕДИТЕ ПРОМОКОД">
-                    
+
             </div>
 
             <a onclick="disable(this);actPromo(this)" class="btn is-ripples flare btn--blue d-flex align-center justify-center promocodeInputBtn"><span>Активировать</span></a>
 
-            
+
         </div>
         <div class="tournier__separate"></div>
         <div class="bx-input">
             <div class="bx-input__create-coupon">
                 <div class="bx-input__input d-flex align-center justify-space-between">
-                    
+
                         <input type="text"  style="text-align: left;" id="name_crpromo" placeholder="ПРОМОКОД">
-                   
+
                 </div>
                 <div class="bx-input__input d-flex align-center justify-space-between">
-                    
+
                         <input style="text-align: left;"  type="text" id="sum_crpromo" placeholder="СУММА">
                         <svg class="icon money"><use xlink:href="images/symbols.svg#coins"></use></svg>
-                    
+
                 </div>
             </div>
             <div class="bx-input__create-coupon">
                 <div class="bx-input__input d-flex align-center justify-space-between">
-                    
+
                         <input type="text" style="text-align: left;" placeholder="КОЛИЧЕСТВО АКТИВАЦИЙ" id="act_crpromo" placeholder="0.00">
                         <svg class="icon money"><use xlink:href="images/symbols.svg#users"></use></svg>
-                   
+
                 </div>
                 <a onclick="disable(this);createPromoUser(this)" style="height: 55px;" class="btn is-ripples flare btn--red d-flex align-center justify-center" ><span>Создать</span></a>
             </div>
-            
+
         </div>
-    </div> 
+    </div>
 </div>
 <div class="popup popup--send">
     <div class="popup__title d-flex align-center justify-space-between">
@@ -1145,7 +1145,7 @@ $snow = 0;
                     <span class="bx-input__text" id="wallet_pay" onclick="copyText('wallet_pay')">79002224132</span>
                     <a href="#" onclick="copyText('wallet_pay')" class="btn btn--blue is-ripples flare d-flex align-center" style="margin-left:5px;"><span>Copy</span></a>
                 </div>
-            </div> 
+            </div>
         </div>
         <div class="bx-input">
             <div class="bx-input__input d-flex align-center justify-space-between">
@@ -1175,7 +1175,7 @@ $snow = 0;
 </div>
 <script>
     function copyText(that){
-        var $temp = $("<input>"); 
+        var $temp = $("<input>");
         $("body").append($temp);
         $temp.val($(that).text()).select();
         document.execCommand("copy");
@@ -1184,7 +1184,7 @@ $snow = 0;
         notification('success', 'Скопировано!')
     }
 </script>
-@if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2)) 
+@if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2))
 <script type="text/javascript">
     function  typeChatBan() {
         type = $('#type_chat_ban').val();
@@ -1484,10 +1484,10 @@ $snow = 0;
     var USER_AVA = '';
     var USER_ID = 0;
     var ADMIN_CHAT = '';
-    @else 
+    @else
 
     var USER_ID = {{\Auth::user()->id}};
-    @if(\Auth::user()->admin == 1) 
+    @if(\Auth::user()->admin == 1)
     var ADMIN_CHAT = '<div class="chat__buttons-admins">\
     <a href="#"><svg class="icon"><use xlink:href="/images/symbols.svg#close"></use></svg></a>\
     <a href="#" rel="popup" data-popup="popup--ban"><svg class="icon" style="width: 20px; height: 20px"><use xlink:href="/images/symbols.svg#warning"></use></svg></a>\
@@ -1529,7 +1529,7 @@ $snow = 0;
         firework2.start();
     };
 
-   
+
 
     @auth
     balanceUpdate(0, {{\Auth::user()->type_balance == 0 ? \Auth::user()->balance : \Auth::user()->demo_balance}}, 1)
@@ -1615,9 +1615,9 @@ $snow = 0;
             setTimeout(() => {
                 $('.overlayed, .popup, body').removeClass('active');
             }, 100)
-            $('.overlayed').addClass('animation-closed') 
-        } 
-    }); 
+            $('.overlayed').addClass('animation-closed')
+        }
+    });
     $(document).ready(function() {
         // captcha_r()
         $(document).on("click","[rel=popup]",function() {
@@ -1630,7 +1630,7 @@ $snow = 0;
 
     function showPopup(el) {
         if($('.popup').is('.active')) {
-            $('.popup').removeClass('active');  
+            $('.popup').removeClass('active');
         }
         $('.overlayed, body, .popup.'+el).addClass('active');
         $('.overlayed').removeClass('animation-closed');
@@ -1680,7 +1680,7 @@ $snow = 0;
             ava = '<div class="chat__msg-avatar '+class_dop+'" style="background: url('+data.avatar+') no-repeat center center / cover;"><img src="../images/games/cap_new.png?v=1" class="cap_new"></div> '
         @endif
 
-        
+
         class_mess = 'mess';
 
 
@@ -1697,7 +1697,7 @@ $snow = 0;
 
 
         dopAdminText = ''
-        @if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2))  
+        @if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2))
         dopAdminText =  '<div class="chat__buttons-admins">\
         <a onclick="deleteMess('+data.id+')"><svg class="icon"><use xlink:href="/images/symbols.svg#close"></use></svg></a>\
         <a onclick="banMessSetId('+data.id+')"  rel="popup" data-popup="popup--ban"><svg class="icon" style="width: 20px; height: 20px;pointer-events: none"><use xlink:href="/images/symbols.svg#warning"></use></svg></a>\
@@ -1717,7 +1717,7 @@ $snow = 0;
             </div>\
             </div>');
 
-        chatScroll() 
+        chatScroll()
 
 
     }
@@ -1742,7 +1742,7 @@ $snow = 0;
                     @else
                         ava = '<div class="chat__msg-avatar '+class_dop+'" style="background: url('+data.avatar+') no-repeat center center / cover;"><img src="../images/games/cap_new.png?v=1" class="cap_new"></div> '
                     @endif
-                    
+
                     class_mess = 'mess';
 
 
@@ -1753,13 +1753,13 @@ $snow = 0;
                         @else
                             ava = '<div class="chat__msg-avatar '+class_dop+'" ><img src="../images/games/cap_new.png?v=1" class="cap_new"></div>';
                         @endif
-                        
+
                     }
 
-                    
+
 
                     dopAdminText = ''
-                    @if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2))  
+                    @if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2))
                     dopAdminText =  '<div class="chat__buttons-admins">\
                     <a onclick="deleteMess('+data.id+')"><svg class="icon"><use xlink:href="/images/symbols.svg#close"></use></svg></a>\
                     <a onclick="banMessSetId('+data.id+')"  rel="popup" data-popup="popup--ban"><svg class="icon" style="width: 20px; height: 20px;pointer-events: none"><use xlink:href="/images/symbols.svg#warning"></use></svg></a>\
@@ -1784,7 +1784,7 @@ $snow = 0;
                 })
 
 
-            } 
+            }
 
         })
     }
@@ -1793,13 +1793,13 @@ $snow = 0;
     chatGet()
 
 
-    @if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2))  
+    @if(\Auth::user() && (\Auth::user()->admin == 1 or \Auth::user()->admin == 2))
     function deleteMess(id){
 
         $.post('/chat/delete',{_token: csrf_token, id}).then(e=>{
           if(e.success){
             notification('success','Успешно')
-        }else{      
+        }else{
             notification('error',e.mess)
         }
     })
@@ -1815,7 +1815,7 @@ $snow = 0;
 
           if(e.success){
             notification('success','Успешно')
-        }else{    
+        }else{
             notification('error',e.mess)
         }
     })
@@ -1824,7 +1824,7 @@ $snow = 0;
 
 
 
-    @endif  
+    @endif
 
 
 
@@ -1836,7 +1836,7 @@ $snow = 0;
         console.log('hCaptcha is ready.');
         var widgetID = hcaptcha.render('captcha', { sitekey: '952c2020-3e6b-43fe-b941-4659cb499ec7' });
     };
-    
+
 
 
 </script>
@@ -1849,14 +1849,14 @@ $snow = 0;
 
         function openWinter(id){
             $.post('/winter/start',{_token: csrf_token, id}).then(e=>{
-                undisable('.winter__item')   
-                if(e.success){  
-                    
+                undisable('.winter__item')
+                if(e.success){
+
                     e.prize.forEach(function(item, i, arr) {
                         $('.winter__item:eq('+i+') .winter__front span').html(item+' Р')
 
-                    })  
-                   
+                    })
+
                     balanceUpdate(e.lastbalance, e.newbalance)
                     notification('success',e.success)
                     notification('success','С Новым годом!')
@@ -1867,27 +1867,27 @@ $snow = 0;
 
                     setTimeout(() => location.href='/',2000);
 
-                }else{       
+                }else{
                     notification('error',e.mess)
                 }
             }).fail(e=>{
-                undisable('.winter__item')   
+                undisable('.winter__item')
                 notification('error',JSON.parse(e.responseText).message)
-            })  
+            })
         }
 
-       
+
 
         socket.on('laravel_database_openNewYear', function(data){
             $('.winter').fadeIn();
-        }) 
+        })
 
         socket.on('laravel_database_closeNewYear', function(data){
             $('.winter').fadeOut();
-        }) 
+        })
 
     </script>
-    
+
 
     @if(\Auth::user()->newYear == 0 && \App\Setting::first()->newYear == 1)
     <script type="text/javascript">
